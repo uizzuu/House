@@ -1,0 +1,27 @@
+#room{
+    width: 400px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.oneline{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+h4{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.report{
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+}
+
+.report:hover{
+    color: #6D94C5;
+}
