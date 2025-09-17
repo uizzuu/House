@@ -1,10 +1,8 @@
-import { useParams } from "react-router-dom";
 import data from "../Data/data";
 import { Container } from "react-bootstrap";
+import "./Detail.css";
 
-
-function Detail() {
-  const { id } = useParams();
+function Detail({ id }) {
   const room = data.find((item) => item.id === parseInt(id));
 
   if (!room) {
@@ -12,12 +10,12 @@ function Detail() {
   }
 
   return (
-    <Container style={{ marginTop: "50px" }}>
+    <>
       <h2>{room.title}</h2>
-      <h4>{room.content}</h4>
+      <h5>{room.content}</h5>
+      <h5>가격: {room.price.toLocaleString()}원</h5>
       <img src={room.image} alt={room.title} width="100%" />
-      <p>가격: {room.price.toLocaleString()}원</p>
-    </Container>
+    </>
   );
 }
 
