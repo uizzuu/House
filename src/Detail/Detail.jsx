@@ -9,11 +9,37 @@ function Detail({ id }) {
     return <h2>존재하지 않는 방입니다.</h2>;
   }
 
+  const tags = room.content.split(",").map((tag) => tag.trim());
+
   return (
     <>
       <h2>{room.title}</h2>
-      <h5>{room.content}</h5>
       <h5>가격: {room.price.toLocaleString()}원</h5>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "8px",
+          margin: "10px 0",
+        }}
+      >
+        {tags.map((tag, index) => (
+          <span
+            key={index}
+            style={{
+              display: "inline-block",
+              backgroundColor: "#f0f0f0",
+              padding: "10px 16px",
+              borderRadius: "50px",
+              margin: "16px 0 20px",
+              fontSize: "0.8rem",
+              fontWeight: "600",
+            }}
+          >
+            #{tag}
+          </span>
+        ))}
+      </div>
       <img src={room.image} alt={room.title} width="100%" />
     </>
   );
