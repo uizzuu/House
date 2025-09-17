@@ -1,6 +1,16 @@
 import { Modal, Button } from "react-bootstrap";
+import { useState } from "react";
 
-function ReportModal({ show, onHide }) {
+function ReportModal({ show, onHide, onSubmit }) {
+  const [reason, setReason] = useState("");
+
+  const handleSubmit = () => {
+    if (reason.trim() !== "") {
+      onSubmit(reason); // Home으로 내용 전달
+      setReason(""); // 모달 초기화
+    }
+  };
+
   return (
     <Modal show={show} onHide={onHide} centered>
       <Modal.Header closeButton style={{ height: "60px" }}>
@@ -16,13 +26,15 @@ function ReportModal({ show, onHide }) {
             resize: "none",
           }}
           placeholder="신고 사유를 입력하세요."
+          value={reason}
+          onChange={(e) => setReason(e.target.value)}
         />
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={onHide}>
           취소
         </Button>
-        <Button variant="primary" onClick={onHide}>
+        <Button variant="primary" onClick={handleSubmit}>
           제출
         </Button>
       </Modal.Footer>

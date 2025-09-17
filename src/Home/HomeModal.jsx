@@ -1,7 +1,7 @@
 import { Modal, Button } from "react-bootstrap";
 import Detail from "../Detail/Detail";
 
-function HomeModal({ show, onHide, roomId }) {
+function HomeModal({ show, onHide, roomId, onReport }) {
   return (
     <Modal
       show={show}
@@ -14,7 +14,7 @@ function HomeModal({ show, onHide, roomId }) {
         <Modal.Title>방 상세보기</Modal.Title>
       </Modal.Header>
       <Modal.Body style={{ padding: "20px 30px 40px" }}>
-        {roomId !== null && <Detail id={roomId} />}
+        {roomId !== null && <Detail id={roomId} onReport={onReport} />}
       </Modal.Body>
     </Modal>
   );

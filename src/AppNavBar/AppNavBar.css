@@ -1,0 +1,12 @@
+.App{
+    font-weight: 600;
+}
+
+.navbar-brand{
+    font-weight: 800;
+}
+
+.nav-link:hover, .nav-link:active, .nav-link.active{
+    font-weight: 700;
+    color: #fff !important;
+  }

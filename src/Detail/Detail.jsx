@@ -2,7 +2,7 @@ import data from "../Data/data";
 import { Container } from "react-bootstrap";
 import "./Detail.css";
 
-function Detail({ id }) {
+function Detail({ id, onReport }) {
   const room = data.find((item) => item.id === parseInt(id));
 
   if (!room) {
@@ -13,7 +13,21 @@ function Detail({ id }) {
 
   return (
     <>
-      <h2>{room.title}</h2>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <h2>{room.title}</h2>
+        <button
+          className="btn btn-danger"
+          onClick={() => onReport && onReport(room.id)}
+        >
+          허위매물 신고
+        </button>
+      </div>
       <h5>가격: {room.price.toLocaleString()}원</h5>
       <div
         style={{
