@@ -6,8 +6,9 @@ function ReportModal({ show, onHide, onSubmit }) {
 
   const handleSubmit = () => {
     if (reason.trim() !== "") {
-      onSubmit(reason); // Home으로 내용 전달
+      onSubmit(reason, new Date()); // Home으로 내용 전달
       setReason(""); // 모달 초기화
+      onHide();
     }
   };
 
