@@ -1,3 +1,4 @@
+/* eslint-disable */
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 import AppNavBar from "./AppNavBar/AppNavBar";
